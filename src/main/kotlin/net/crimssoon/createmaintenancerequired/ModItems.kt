@@ -1,4 +1,4 @@
-package net.crimssoon.beginnermod
+package net.crimssoon.createmaintenancerequired
 
 import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.Item
@@ -10,14 +10,14 @@ import java.util.function.Supplier
 object ModItems {
 
     val ITEMS: DeferredRegister.Items =
-        DeferredRegister.createItems(BeginnerMod.MOD_ID)
+        DeferredRegister.createItems(CreateMaintenanceRequired.MOD_ID)
 
-    val TEST_BLOCK: DeferredItem<BlockItem> =
+    val BROKEN_HARVESTER: DeferredItem<BlockItem> =
         ITEMS.register(
-            "test_block",
+            "broken_harvester",
             Supplier {
                 BlockItem(
-                    ModBlocks.TEST_BLOCK.get(),
+                    ModBlocks.BROKEN_HARVESTER.get(),
                     Item.Properties()
                 )
             }

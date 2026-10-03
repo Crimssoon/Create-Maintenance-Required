@@ -1,13 +1,13 @@
-package net.crimssoon.beginnermod
+package net.crimssoon.createmaintenancerequired
 
 import net.neoforged.bus.api.IEventBus
 import net.neoforged.fml.common.Mod
 
-@Mod(BeginnerMod.MOD_ID)
-class BeginnerMod(modEventBus: IEventBus) {
+@Mod(CreateMaintenanceRequired.MOD_ID)
+class CreateMaintenanceRequired(modEventBus: IEventBus) {
 
     companion object {
-        const val MOD_ID = "beginnermod"
+        const val MOD_ID = "createmaintenancerequired"
     }
 
     init {

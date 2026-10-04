@@ -49,6 +49,19 @@ repositories {
         name = "Registrate"
         url = uri("https://maven.ithundxr.dev/snapshots")
     }
+
+    exclusiveContent {
+        forRepository {
+            maven {
+                url = "https://maven.ryanhcode.dev/releases"
+                name = "RyanHCode Maven"
+            }
+        }
+        filter {
+            includeGroup("dev.ryanhcode.sable")
+            includeGroup("dev.ryanhcode.sable-companion")
+        }
+    }
 }
 
 base {
@@ -132,6 +145,15 @@ dependencies {
     runtimeOnly "dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}"
 
     implementation "com.tterrag.registrate:Registrate:${registrate_version}"
+
+    // Sable: compile-only and non-transitive, so Veil/Molang etc. are not pulled in
+    compileOnly("dev.ryanhcode.sable:sable-neoforge-1.21.1:2.0.5") {
+        transitive = false
+    }
+
+    compileOnly("dev.ryanhcode.sable-companion:sable-companion-common-1.21.1:1.6.0") {
+        transitive = false
+    }
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

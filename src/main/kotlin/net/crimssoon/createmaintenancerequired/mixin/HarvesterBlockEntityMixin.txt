@@ -1,0 +1,29 @@
+package net.crimssoon.createmaintenancerequired.mixin
+
+import com.simibubi.create.content.contraptions.actors.harvester.HarvesterBlockEntity
+import net.crimssoon.createmaintenancerequired.HarvesterDurability
+import net.crimssoon.createmaintenancerequired.HarvesterTracker
+import net.crimssoon.createmaintenancerequired.ModAttachments
+import net.minecraft.core.BlockPos
+import net.minecraft.world.level.block.entity.BlockEntityType
+import net.minecraft.world.level.block.state.BlockState
+import org.spongepowered.asm.mixin.Mixin
+import org.spongepowered.asm.mixin.injection.At
+import org.spongepowered.asm.mixin.injection.Inject
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo
+
+@Mixin(HarvesterBlockEntity::class)
+abstract class HarvesterBlockEntityMixin {
+
+    @Inject(method = ["<init>"], at = [At("RETURN")])
+    private fun createmaintenancerequired_init(
+        type: BlockEntityType<*>,
+        pos: BlockPos,
+        state: BlockState,
+        ci: CallbackInfo
+    ) {
+        val self = (this as Any) as HarvesterBlockEntity
+        self.setData(ModAttachments.DURABILITY, HarvesterDurability.MAX)
+        HarvesterTracker.add(self)
+    }
+}

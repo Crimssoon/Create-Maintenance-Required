@@ -1,3 +1,7 @@
 {
-  "item.createmaintenancerequired.wire_brush": "Wire Brush"
+  "item.createmaintenancerequired.wire_brush": "Wire Brush",
+  "itemGroup.createmaintenancerequired": "Create: Maintenance Required",
+  "item.createmaintenancerequired.wire_brush.tooltip.summary": "A stiff brush for scrubbing _rust_ off worn machinery.",
+  "item.createmaintenancerequired.wire_brush.tooltip.condition1": "When used on a rusty machine",
+  "item.createmaintenancerequired.wire_brush.tooltip.behaviour1": "Restores some of its _durability_."
 }

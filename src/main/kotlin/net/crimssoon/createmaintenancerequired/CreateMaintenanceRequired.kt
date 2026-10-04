@@ -16,5 +16,6 @@ class CreateMaintenanceRequired(modEventBus: IEventBus) {
         ModComponents.register(modEventBus)
         ModRustTargets.register()
         ModLootModifiers.register(modEventBus)
+        ModCreativeTabs.register(modEventBus)
     }
 }

@@ -1,11 +1,7 @@
 package net.crimssoon.createmaintenancerequired.item
 
-import com.simibubi.create.AllBlocks
-import com.simibubi.create.content.contraptions.actors.harvester.HarvesterBlock
-import net.crimssoon.createmaintenancerequired.ModComponents
 import net.crimssoon.createmaintenancerequired.RustDurability
 import net.crimssoon.createmaintenancerequired.RustTargets
-import net.crimssoon.createmaintenancerequired.block.BrokenHarvesterBlock
 import net.minecraft.world.InteractionResult
 import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.entity.player.Player
@@ -49,20 +45,6 @@ class WireBrushItem(
         val pos = context.clickedPos
         val state = level.getBlockState(pos)
 
-        /*
-         * Broken harvester is also a valid repair target.
-         */
-        val isBrokenHarvester =
-            state.block ===
-                    net.crimssoon.createmaintenancerequired.ModBlocks
-                        .BROKEN_HARVESTER.get()
-
-        if (!isBrokenHarvester &&
-            !RustTargets.isRustable(state.block)
-        ) {
-            return InteractionResult.PASS
-        }
-
         val player = context.player
             ?: return InteractionResult.PASS
 
@@ -79,9 +61,6 @@ class WireBrushItem(
         stack: ItemStack,
         remainingUseDuration: Int
     ) {
-        /*
-         * Keep vanilla brush particles and animation on the client.
-         */
         if (level.isClientSide) {
             super.onUseTick(
                 level,
@@ -120,60 +99,6 @@ class WireBrushItem(
         val pos = blockHit.blockPos
         val state = level.getBlockState(pos)
 
-        /*
-         * Special case:
-         *
-         * Broken Harvester -> Mechanical Harvester
-         * with 0 durability.
-         */
-        if (state.block ===
-            net.crimssoon.createmaintenancerequired.ModBlocks
-                .BROKEN_HARVESTER.get()
-        ) {
-            val facing =
-                state.getValue(
-                    BrokenHarvesterBlock.FACING
-                )
-
-            val repairedState =
-                AllBlocks.MECHANICAL_HARVESTER
-                    .get()
-                    .defaultBlockState()
-                    .setValue(
-                        HarvesterBlock.FACING,
-                        facing
-                    )
-
-            level.setBlockAndUpdate(
-                pos,
-                repairedState
-            )
-
-            val blockEntity =
-                level.getBlockEntity(pos)
-
-            if (blockEntity != null) {
-                RustDurability.set(
-                    blockEntity,
-                    0
-                )
-            }
-
-            stack.hurtAndBreak(
-                BRUSH_DAMAGE,
-                livingEntity,
-                LivingEntity.getSlotForHand(
-                    livingEntity.usedItemHand
-                )
-            )
-
-            livingEntity.stopUsingItem()
-            return
-        }
-
-        /*
-         * Normal rustable block repair.
-         */
         if (!RustTargets.isRustable(state.block)) {
             livingEntity.stopUsingItem()
             return

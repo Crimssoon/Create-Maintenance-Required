@@ -9,7 +9,10 @@
     "DrillBlockMixin",
     "BlockEntityMixin",
     "LevelChunkMixin",
-    "ItemStackMixin"
+    "ItemStackMixin",
+    "BlockBreakingKineticBlockEntityMixin",
+    "SawBlockEntityMixin",
+    "HarvesterSubLevelTickMixin"
   ],
 
   "client": [

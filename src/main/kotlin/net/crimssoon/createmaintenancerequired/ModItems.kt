@@ -13,17 +13,6 @@ object ModItems {
     val ITEMS: DeferredRegister.Items =
         DeferredRegister.createItems(CreateMaintenanceRequired.MOD_ID)
 
-    val BROKEN_HARVESTER: DeferredItem<BlockItem> =
-        ITEMS.register(
-            "broken_harvester",
-            Supplier {
-                BlockItem(
-                    ModBlocks.BROKEN_HARVESTER.get(),
-                    Item.Properties()
-                )
-            }
-        )
-
     @JvmField
     val WIRE_BRUSH: DeferredItem<WireBrushItem> =
         ITEMS.register(

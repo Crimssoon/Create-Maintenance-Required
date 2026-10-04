@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "create:mechanical_harvester",
-    "createmaintenancerequired:broken_harvester",
     "create:mechanical_saw",
     "create:mechanical_drill"
   ]

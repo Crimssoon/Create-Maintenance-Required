@@ -1,6 +1,5 @@
 package net.crimssoon.createmaintenancerequired.client
 
-import com.mojang.blaze3d.vertex.PoseStack
 import com.mojang.math.Axis
 import com.simibubi.create.AllBlocks
 import com.simibubi.create.AllPartialModels

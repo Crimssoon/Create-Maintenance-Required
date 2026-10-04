@@ -1,8 +1,6 @@
 package net.crimssoon.createmaintenancerequired
 
 import com.simibubi.create.AllBlocks
-import com.simibubi.create.content.contraptions.actors.harvester.HarvesterBlock
-import net.crimssoon.createmaintenancerequired.block.BrokenHarvesterBlock
 
 object ModRustTargets {
 
@@ -12,11 +10,6 @@ object ModRustTargets {
                 block = { AllBlocks.MECHANICAL_HARVESTER.get() },
                 damageChance = 0.5f,
                 damageAmount = 1,
-                onBroken = { state, level, pos ->
-                    val broken = ModBlocks.BROKEN_HARVESTER.get().defaultBlockState()
-                        .setValue(BrokenHarvesterBlock.FACING, state.getValue(HarvesterBlock.FACING))
-                    level.setBlockAndUpdate(pos, broken)
-                }
             )
         )
         RustTargets.register(

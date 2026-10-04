@@ -11,7 +11,6 @@ class CreateMaintenanceRequired(modEventBus: IEventBus) {
     }
 
     init {
-        ModBlocks.register(modEventBus)
         ModItems.register(modEventBus)
         ModAttachments.register(modEventBus)
         ModComponents.register(modEventBus)

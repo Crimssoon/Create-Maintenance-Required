@@ -1,5 +1,6 @@
 package net.crimssoon.createmaintenancerequired
 
+import net.crimssoon.createmaintenancerequired.item.WireBrushItem
 import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.Item
 import net.neoforged.bus.api.IEventBus
@@ -19,6 +20,18 @@ object ModItems {
                 BlockItem(
                     ModBlocks.BROKEN_HARVESTER.get(),
                     Item.Properties()
+                )
+            }
+        )
+
+    @JvmField
+    val WIRE_BRUSH: DeferredItem<WireBrushItem> =
+        ITEMS.register(
+            "wire_brush",
+            Supplier {
+                WireBrushItem(
+                    Item.Properties()
+                        .durability(64)
                 )
             }
         )

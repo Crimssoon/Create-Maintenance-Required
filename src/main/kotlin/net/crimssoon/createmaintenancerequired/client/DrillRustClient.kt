@@ -53,16 +53,6 @@ object DrillRustClient {
                         facing.axis
                     )
 
-                /*
-                 * This is the same transform used by
-                 * Create's DrillRenderer:
-                 *
-                 * center
-                 * rotate Y by horizontal facing
-                 * rotate X by vertical facing
-                 * rotate Z by kinetic angle
-                 * uncenter
-                 */
                 pose.translate(
                     0.5,
                     0.5,
@@ -82,12 +72,7 @@ object DrillRustClient {
                 )
 
                 val rotation =
-                    when (facing) {
-                        Direction.NORTH,
-                        Direction.DOWN -> -angle
-
-                        else -> angle
-                    }
+                    if (facing.axisDirection == Direction.AxisDirection.NEGATIVE) -angle else angle
 
                 pose.mulPose(
                     Axis.ZP.rotation(rotation)

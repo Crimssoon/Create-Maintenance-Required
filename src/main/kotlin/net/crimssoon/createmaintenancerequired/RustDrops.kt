@@ -1,6 +1,9 @@
 package net.crimssoon.createmaintenancerequired
 
 import net.minecraft.server.level.ServerLevel
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.level.block.entity.BlockEntity
+import net.minecraft.world.level.block.state.BlockState
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.neoforge.event.level.BlockDropsEvent
@@ -9,20 +12,25 @@ import net.neoforged.neoforge.event.level.BlockDropsEvent
 object RustDrops {
 
     @JvmStatic
-    @SubscribeEvent
-    fun onBlockDrops(event: BlockDropsEvent) {
-        if (event.level !is ServerLevel) return
-        if (!RustTargets.isRustable(event.state.block)) return
+    fun stamp(state: BlockState, be: BlockEntity?, drops: List<ItemStack>) {
+        if (be == null) return
+        if (!RustTargets.isRustable(state.block)) return
 
-        val be = event.blockEntity ?: return
         val durability = RustDurability.get(be)
         if (durability >= RustDurability.MAX) return
 
-        val item = event.state.block.asItem()
-        for (drop in event.drops) {
-            if (drop.item.item == item) {
-                drop.item.set(ModComponents.DURABILITY.get(), durability)
+        val item = state.block.asItem()
+        for (stack in drops) {
+            if (stack.item == item) {
+                stack.set(ModComponents.DURABILITY.get(), durability)
             }
         }
+    }
+
+    @JvmStatic
+    @SubscribeEvent
+    fun onBlockDrops(event: BlockDropsEvent) {
+        if (event.level !is ServerLevel) return
+        stamp(event.state, event.blockEntity, event.drops.map { it.item })
     }
 }

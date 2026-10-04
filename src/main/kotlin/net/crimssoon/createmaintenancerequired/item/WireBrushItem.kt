@@ -18,8 +18,9 @@ class WireBrushItem(
 
     companion object {
         private const val REPAIR_INTERVAL = 5
-        private const val REPAIR_AMOUNT = 1
+        private const val REPAIR_AMOUNT = 2
         private const val BRUSH_DAMAGE = 1
+        private const val MAX_DURABILITY = 100
     }
 
     override fun shouldCauseReequipAnimation(
@@ -47,6 +48,19 @@ class WireBrushItem(
 
         val player = context.player
             ?: return InteractionResult.PASS
+
+        if (!RustTargets.isRustable(state.block)) {
+            return InteractionResult.PASS
+        }
+
+        val blockEntity = level.getBlockEntity(pos)
+            ?: return InteractionResult.PASS
+
+        val current = RustDurability.get(blockEntity)
+
+        if (current >= MAX_DURABILITY) {
+            return InteractionResult.PASS
+        }
 
         if (!level.isClientSide) {
             player.startUsingItem(context.hand)
@@ -91,7 +105,6 @@ class WireBrushItem(
             )
 
         if (hit.type != HitResult.Type.BLOCK) {
-            livingEntity.stopUsingItem()
             return
         }
 
@@ -99,30 +112,29 @@ class WireBrushItem(
         val pos = blockHit.blockPos
         val state = level.getBlockState(pos)
 
+        // Ignore non-rustable blocks.
         if (!RustTargets.isRustable(state.block)) {
-            livingEntity.stopUsingItem()
             return
         }
 
         val blockEntity =
             level.getBlockEntity(pos)
-
-        if (blockEntity == null) {
-            livingEntity.stopUsingItem()
-            return
-        }
+                ?: return
 
         val current =
             RustDurability.get(blockEntity)
 
-        if (current >= RustDurability.MAX) {
-            livingEntity.stopUsingItem()
+        if (current >= MAX_DURABILITY) {
             return
         }
 
+        val newDurability =
+            (current + REPAIR_AMOUNT)
+                .coerceAtMost(MAX_DURABILITY)
+
         RustDurability.set(
             blockEntity,
-            current + REPAIR_AMOUNT
+            newDurability
         )
 
         stack.hurtAndBreak(

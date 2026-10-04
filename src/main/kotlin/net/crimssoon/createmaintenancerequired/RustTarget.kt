@@ -1,16 +1,13 @@
 package net.crimssoon.createmaintenancerequired
 
-import net.minecraft.core.BlockPos
-import net.minecraft.server.level.ServerLevel
 import net.minecraft.world.item.Item
 import net.minecraft.world.level.block.Block
-import net.minecraft.world.level.block.state.BlockState
 
 class RustTarget(
     val block: () -> Block,
-    val damageChance: Float = 0.5f,
+    val damageChance: Float = 1f,
     val damageAmount: Int = 1,
-    val onBroken: ((BlockState, ServerLevel, BlockPos) -> Unit)? = null
+    val wetMultiplier: Int = 2,
 )
 
 object RustTargets {

@@ -13,7 +13,7 @@
 ## Features
 
 * Currently, the rustable machines are the **Mechanical Saw, Mechanical Drill, and Harvester**.
-* Rustable machines slowly lose durability over time. Their current durability is shown in the tooltip and on the durability bar.
+* Rustable machines slowly lose durability over time. Their current durability is shown in the tooltip and on the durability bar of the item.
 * When a rustable machine reaches **0 durability**, it stops working.
 * Use the **Wire Brush** to repair rusted machinery.
 * Rustable machines rust faster when exposed to **water or rain**. This uses **Sable compatibility**.

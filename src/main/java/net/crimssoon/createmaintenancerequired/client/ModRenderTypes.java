@@ -24,10 +24,10 @@ public class ModRenderTypes extends RenderType {
                 VertexFormat.Mode.QUADS,
                 1536,
                 true,
-                false,
+                true,
                 CompositeState.builder()
                         .setShaderState(RENDERTYPE_ENTITY_TRANSLUCENT_CULL_SHADER)
-                        .setTextureState(new TextureStateShard(tex, false, false))
+                        .setTextureState(new TextureStateShard(tex, false, true))
                         .setTransparencyState(TRANSLUCENT_TRANSPARENCY)
                         .setCullState(CULL)
                         .setLightmapState(LIGHTMAP)

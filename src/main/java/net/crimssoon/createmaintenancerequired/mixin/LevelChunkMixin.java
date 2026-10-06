@@ -1,7 +1,7 @@
 package net.crimssoon.createmaintenancerequired.mixin;
 
-import net.crimssoon.createmaintenancerequired.RustTargets;
-import net.crimssoon.createmaintenancerequired.RustTracker;
+import net.crimssoon.createmaintenancerequired.rust.RustTargets;
+import net.crimssoon.createmaintenancerequired.rust.RustTracker;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.chunk.LevelChunk;
 import org.spongepowered.asm.mixin.Mixin;

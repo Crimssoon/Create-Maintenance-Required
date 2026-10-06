@@ -2,10 +2,10 @@ package net.crimssoon.createmaintenancerequired.mixin
 
 import com.simibubi.create.content.kinetics.drill.DrillBlock
 import com.simibubi.create.content.kinetics.drill.DrillBlockEntity
-import net.crimssoon.createmaintenancerequired.ModComponents
-import net.crimssoon.createmaintenancerequired.RustBreakdown
-import net.crimssoon.createmaintenancerequired.RustDurability
-import net.crimssoon.createmaintenancerequired.RustItems
+import net.crimssoon.createmaintenancerequired.rust.helpers.ModComponents
+import net.crimssoon.createmaintenancerequired.rust.RustBreakdown
+import net.crimssoon.createmaintenancerequired.rust.RustDurability
+import net.crimssoon.createmaintenancerequired.rust.RustItems
 import net.minecraft.core.BlockPos
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.util.RandomSource
@@ -23,6 +23,8 @@ import org.spongepowered.asm.mixin.Mixin
 import org.spongepowered.asm.mixin.injection.At
 import org.spongepowered.asm.mixin.injection.Inject
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo
+import net.minecraft.world.entity.EquipmentSlot
+import net.crimssoon.createmaintenancerequired.OverallsItem
 
 @Mixin(DrillBlock::class)
 abstract class DrillBlockMixin {
@@ -95,7 +97,7 @@ abstract class DrillBlockMixin {
         ) {
             if (be.getSpeed() == 0f)
                 return
-
+            if (entity is Player && entity.getItemBySlot(EquipmentSlot.LEGS).item is OverallsItem) return
             if (entity is LivingEntity) {
                 entity.addEffect(
                     MobEffectInstance(

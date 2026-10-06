@@ -1,7 +1,7 @@
 package net.crimssoon.createmaintenancerequired.mixin;
 
 import com.simibubi.create.content.kinetics.base.BlockBreakingKineticBlockEntity;
-import net.crimssoon.createmaintenancerequired.RustWork;
+import net.crimssoon.createmaintenancerequired.rust.RustWork;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

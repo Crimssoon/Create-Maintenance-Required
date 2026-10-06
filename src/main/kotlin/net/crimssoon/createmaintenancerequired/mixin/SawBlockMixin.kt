@@ -2,16 +2,18 @@ package net.crimssoon.createmaintenancerequired.mixin
 
 import com.simibubi.create.content.kinetics.saw.SawBlock
 import com.simibubi.create.content.kinetics.saw.SawBlockEntity
-import net.crimssoon.createmaintenancerequired.ModComponents
-import net.crimssoon.createmaintenancerequired.RustBreakdown
-import net.crimssoon.createmaintenancerequired.RustDurability
-import net.crimssoon.createmaintenancerequired.RustItems
+import net.crimssoon.createmaintenancerequired.OverallsItem
+import net.crimssoon.createmaintenancerequired.rust.helpers.ModComponents
+import net.crimssoon.createmaintenancerequired.rust.RustBreakdown
+import net.crimssoon.createmaintenancerequired.rust.RustDurability
+import net.crimssoon.createmaintenancerequired.rust.RustItems
 import net.minecraft.core.BlockPos
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.util.RandomSource
 import net.minecraft.world.effect.MobEffectInstance
 import net.minecraft.world.effect.MobEffects
 import net.minecraft.world.entity.Entity
+import net.minecraft.world.entity.EquipmentSlot
 import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
@@ -112,6 +114,7 @@ abstract class SawBlockMixin {
                 if (RustDurability.get(be) >= 20)
                     return@let
 
+                if (entity is Player && entity.getItemBySlot(EquipmentSlot.LEGS).item is OverallsItem) return
                 entity.addEffect(
                     MobEffectInstance(
                         MobEffects.POISON,

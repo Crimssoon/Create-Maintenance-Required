@@ -1,10 +1,10 @@
 package net.crimssoon.createmaintenancerequired.mixin
 
 import com.simibubi.create.content.contraptions.actors.harvester.HarvesterBlock
-import net.crimssoon.createmaintenancerequired.ModComponents
-import net.crimssoon.createmaintenancerequired.RustBreakdown
-import net.crimssoon.createmaintenancerequired.RustDurability
-import net.crimssoon.createmaintenancerequired.RustItems
+import net.crimssoon.createmaintenancerequired.rust.helpers.ModComponents
+import net.crimssoon.createmaintenancerequired.rust.RustBreakdown
+import net.crimssoon.createmaintenancerequired.rust.RustDurability
+import net.crimssoon.createmaintenancerequired.rust.RustItems
 import net.minecraft.core.BlockPos
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.util.RandomSource

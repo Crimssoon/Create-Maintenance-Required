@@ -1,7 +1,8 @@
 package net.crimssoon.createmaintenancerequired
 
+import net.crimssoon.createmaintenancerequired.client.overalls.ModArmorMaterials
 import net.crimssoon.createmaintenancerequired.item.WireBrushItem
-import net.minecraft.world.item.BlockItem
+import net.minecraft.world.item.ArmorItem
 import net.minecraft.world.item.Item
 import net.neoforged.bus.api.IEventBus
 import net.neoforged.neoforge.registries.DeferredItem
@@ -21,6 +22,19 @@ object ModItems {
                 WireBrushItem(
                     Item.Properties()
                         .durability(64)
+                )
+            }
+        )
+
+    @JvmField
+    val OVERALLS: DeferredItem<OverallsItem> =
+        ITEMS.register(
+            "overalls",
+            Supplier {
+                OverallsItem(
+                    ModArmorMaterials.OVERALLS,
+                    Item.Properties()
+                        .durability(ArmorItem.Type.LEGGINGS.getDurability(15))
                 )
             }
         )

@@ -1,9 +1,9 @@
 package net.crimssoon.createmaintenancerequired.mixin;
 
-import net.crimssoon.createmaintenancerequired.ModAttachments;
-import net.crimssoon.createmaintenancerequired.RustDurability;
-import net.crimssoon.createmaintenancerequired.RustTargets;
-import net.crimssoon.createmaintenancerequired.RustTracker;
+import net.crimssoon.createmaintenancerequired.rust.helpers.ModAttachments;
+import net.crimssoon.createmaintenancerequired.rust.RustDurability;
+import net.crimssoon.createmaintenancerequired.rust.RustTargets;
+import net.crimssoon.createmaintenancerequired.rust.RustTracker;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;

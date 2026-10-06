@@ -3,6 +3,8 @@ package net.crimssoon.createmaintenancerequired;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.crimssoon.createmaintenancerequired.rust.RustDrops;
+import net.crimssoon.createmaintenancerequired.rust.RustTargets;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;

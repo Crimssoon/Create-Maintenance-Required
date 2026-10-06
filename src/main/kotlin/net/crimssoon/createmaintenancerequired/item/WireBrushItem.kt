@@ -1,7 +1,7 @@
 package net.crimssoon.createmaintenancerequired.item
 
-import net.crimssoon.createmaintenancerequired.RustDurability
-import net.crimssoon.createmaintenancerequired.RustTargets
+import net.crimssoon.createmaintenancerequired.rust.RustDurability
+import net.crimssoon.createmaintenancerequired.rust.RustTargets
 import net.minecraft.world.InteractionResult
 import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.entity.player.Player

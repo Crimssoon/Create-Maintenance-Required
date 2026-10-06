@@ -1,6 +1,7 @@
 package net.crimssoon.createmaintenancerequired
 
 import com.simibubi.create.AllBlocks
+import net.crimssoon.createmaintenancerequired.rust.helpers.ModComponents
 import net.minecraft.core.registries.Registries
 import net.minecraft.network.chat.Component
 import net.minecraft.world.item.CreativeModeTab

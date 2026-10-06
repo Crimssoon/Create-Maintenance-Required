@@ -1,7 +1,7 @@
 package net.crimssoon.createmaintenancerequired.mixin;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.crimssoon.createmaintenancerequired.client.ItemRustRenderer;
+import net.crimssoon.createmaintenancerequired.client.render.ItemRustRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.resources.model.BakedModel;

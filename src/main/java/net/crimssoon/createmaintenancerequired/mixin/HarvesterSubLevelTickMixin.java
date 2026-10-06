@@ -1,7 +1,7 @@
 package net.crimssoon.createmaintenancerequired.mixin;
 
 import com.simibubi.create.content.contraptions.actors.harvester.HarvesterBlockEntity;
-import net.crimssoon.createmaintenancerequired.RustWork;
+import net.crimssoon.createmaintenancerequired.rust.RustWork;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

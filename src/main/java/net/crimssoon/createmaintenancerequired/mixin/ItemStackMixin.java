@@ -1,6 +1,6 @@
 package net.crimssoon.createmaintenancerequired.mixin;
 
-import net.crimssoon.createmaintenancerequired.RustBar;
+import net.crimssoon.createmaintenancerequired.rust.RustBar;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

@@ -24,20 +24,15 @@ object DrillRustClient {
 
     @JvmStatic
     @SubscribeEvent
-    fun onClientSetup(
-        event: FMLClientSetupEvent
-    ) {
+    fun onClientSetup(event: FMLClientSetupEvent) {
         val head = RustPart(
             quads = {
                 DamageOverlayRenderer.quadsForModel(
                     AllPartialModels.DRILL_HEAD.get()
                 )
             },
-
             maxDistanceSq = 12.0 * 12.0,
-
             transform = { pose, be, state, _ ->
-
                 val facing =
                     state.getValue(
                         BlockStateProperties.FACING
@@ -73,7 +68,14 @@ object DrillRustClient {
                 )
 
                 val rotation =
-                    if (facing.axisDirection == Direction.AxisDirection.NEGATIVE) -angle else angle
+                    if (
+                        facing.axisDirection ==
+                        Direction.AxisDirection.NEGATIVE
+                    ) {
+                        -angle
+                    } else {
+                        angle
+                    }
 
                 pose.mulPose(
                     Axis.ZP.rotation(rotation)

@@ -21,8 +21,20 @@ object SableCompat {
     fun transformFor(level: Level, pos: BlockPos): SubLevelTransform? {
         val sub = SableCompanion.INSTANCE.getContaining(level, pos) ?: return null
         val pose = (sub as? ClientSubLevelAccess)?.renderPose() ?: sub.logicalPose()
-        val g = pose.transformPosition(Vector3d(pos.x + 0.5, pos.y + 0.5, pos.z + 0.5))
-        return SubLevelTransform(g.x, g.y, g.z, Quaternionf().set(pose.orientation()))
+        val g = pose.transformPosition(
+            Vector3d(
+                pos.x + 0.5,
+                pos.y + 0.5,
+                pos.z + 0.5
+            )
+        )
+
+        return SubLevelTransform(
+            g.x,
+            g.y,
+            g.z,
+            Quaternionf().set(pose.orientation())
+        )
     }
 
     fun harvesterSpeed(be: BlockEntity, partialTick: Float): Float? {

@@ -22,6 +22,7 @@ object ModCreativeTabs {
                 .icon { ItemStack(ModItems.WIRE_BRUSH.get()) }
                 .displayItems { _, output ->
                     output.accept(ModItems.WIRE_BRUSH.get())
+                    output.accept(ModItems.OVERALLS.get())
 
                     val machines = listOf(
                         AllBlocks.MECHANICAL_HARVESTER.asItem(),

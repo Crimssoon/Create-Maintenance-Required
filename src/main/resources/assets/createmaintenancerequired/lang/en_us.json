@@ -4,5 +4,8 @@
   "item.createmaintenancerequired.wire_brush.tooltip.summary": "A stiff brush for scrubbing _rust_ off worn machinery.",
   "item.createmaintenancerequired.wire_brush.tooltip.condition1": "When used on a rusty machine",
   "item.createmaintenancerequired.wire_brush.tooltip.behaviour1": "Restores some of its _durability_.",
-  "item.createmaintenancerequired.overalls": "Overalls"
+  "item.createmaintenancerequired.overalls": "Overalls",
+  "item.createmaintenancerequired.overalls.tooltip.summary": "Sturdy work trousers that keep you safe around _moving machinery_.",
+  "item.createmaintenancerequired.overalls.tooltip.condition1": "When worn and hit by a Saw or Drill",
+  "item.createmaintenancerequired.overalls.tooltip.behaviour1": "All damage from _Mechanical Saws_ and _Mechanical Drills_ is _negated_"
 }
